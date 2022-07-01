@@ -1,0 +1,18 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<head>
+<h1>lightCipher</h1>
+</head>
+<body>
+	<h2>RESULTS</h2>
+	
+	<h3>The selected cipher was: <p th:text=${algorithm} /></h3>
+	<h3>The selected word was: <p th:text=${word} /></h3>
+	<h3>The selected key was: <p th:text=${key} /></h3>
+	<h3> <p th:text=${encrypted} /></h3>
+	
+	<input type="submit" value="Go back" 
+    onclick="window.location='/cipher';" />   
+
+</body>
+</html>

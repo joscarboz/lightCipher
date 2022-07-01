@@ -1,0 +1,47 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<head>
+<h1>lightCipher</h1>
+</head>
+<body>
+	<form action="encrypt">
+		<label for="inputText">Input:</label> <input type="text"
+			id="inputText" name="inputText"><br> <br> <label
+			for="keytext">Key:</label> <input type="text" id="keytext"
+			name="keytext"><br> <br> <select
+			name="selectEncrypt" id="selectEncrypt">
+			<option value="Simon32">Simon32</option>
+			<option value="Simon48">Simon48</option>
+			<option value="Simon64">Simon64</option>
+			<option value="Simon96">Simon96</option>
+			<option value="Simon128">Simon128</option>
+			<option value="Speck32">Speck32</option>
+			<option value="Speck48">Speck48</option>
+			<option value="Speck64">Speck64</option>
+			<option value="Speck96">Speck96</option>
+			<option value="Speck128">Speck128</option>
+		</select> <input type="submit" value="Encrypt">
+	</form>
+
+	<p th:text=${outputEncryptError} />
+	<form action="decrypt">
+		<label for="inputText">Input:</label> <input type="text"
+			id="inputText" name="inputText"><br> <br> <label
+			for="keytext">Key:</label> <input type="text" id="keytext"
+			name="keytext"><br> <br> <select
+			name="selectDecrypt" id="selectDecrypt">
+			<option value="Simon32">Simon32</option>
+			<option value="Simon48">Simon48</option>
+			<option value="Simon64">Simon64</option>
+			<option value="Simon96">Simon96</option>
+			<option value="Simon128">Simon128</option>
+			<option value="Speck32">Speck32</option>
+			<option value="Speck48">Speck48</option>
+			<option value="Speck64">Speck64</option>
+			<option value="Speck96">Speck96</option>
+			<option value="Speck128">Speck128</option>
+		</select> <input type="submit" value="Decrypt">
+	</form>
+	<p th:text=${outputDecryptError} />
+</body>
+</html>
