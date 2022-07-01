@@ -61,7 +61,7 @@ public class SpeckEngine
       printBytes(io128);
     }
     
-    private static void printBytes(final byte[] data) {
+    static void printBytes(final byte[] data) {
       for (int i = 0; i < data.length; i++) {
         System.out.printf("%02X ", data[i]);
       }

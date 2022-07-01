@@ -65,6 +65,15 @@ public class MainController {
 				res = "cipher";
 			}
 			break;
+		case "Speck32":
+			if (inputText.length() == 6 && keytext.length() == 8) {
+				LlamadasUtilesEncrypt.Speck32(inputText, keytext, modelo);
+			} else {
+				String message = "Word must be 6 characters & key must be 8 characters";
+				modelo.addAttribute("outputEncryptError", message);
+				res = "cipher";
+			}
+			break;
 
 		case "Simon48":
 			if (inputText.length() == 6 && (keytext.length() == 9 || keytext.length() == 12)) {
@@ -130,7 +139,15 @@ public class MainController {
 				res = "cipher";
 			}
 			break;
-
+		case "Speck32":
+			if (keytext.length() == 8) {
+				LlamadasUtilesDecrypt.Speck32(inputText, keytext, modelo);
+			} else {
+				String message = "Key must be 8 characters";
+				modelo.addAttribute("outputDecryptError", message);
+				res = "cipher";
+			}
+			break;
 		case "Simon48":
 			if (keytext.length() == 9 || keytext.length() == 12) {
 				LlamadasUtilesDecrypt.Simon48(inputText, keytext, modelo);
@@ -174,7 +191,7 @@ public class MainController {
 			break;
 
 		}
-		
+
 		return res;
 	}
 

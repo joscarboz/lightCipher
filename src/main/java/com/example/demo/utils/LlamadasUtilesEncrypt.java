@@ -28,6 +28,27 @@ public class LlamadasUtilesEncrypt {
 		return s;
 	}
 	
+	public static String Speck32(String inputText, String keytext, Model modelo) {
+		String s = "";
+		try {
+			String input = inputText;
+			byte[] inputByte = Base64.getDecoder().decode(inputText);
+			String key = keytext;
+			byte[] keyByte = key.getBytes();
+			SpeckEngine.printBytes(inputByte);
+			SpeckEngine.encrypt(SpeckEngine.SPECK_32, keyByte, inputByte);
+			SpeckEngine.printBytes(inputByte);
+			 s = Base64.getEncoder().encodeToString(inputByte);
+			 modelo.addAttribute("algorithm", "Speck32");
+				modelo.addAttribute("word", input);
+				modelo.addAttribute("key", key );
+				modelo.addAttribute("encrypted", "Your decrypted word is: " + s);
+		} catch (Exception e) {
+
+		}
+		return s;
+	}
+	
 	public static String Simon48(String inputText, String keytext, Model modelo) {
 		String s = "";
 		try {
