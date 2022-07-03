@@ -1,18 +1,31 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <meta charset="UTF-8">
 <head>
+<div align="center">
 <h1>lightCipher</h1>
+</div>
 </head>
-<body>
+<body style="background-image: url('images/Pastel_Background_vector_5.jpg'); background-repeat: no-repeat;    background-size: 100% 100%;">
+<div align="center">
 	<h2>RESULTS</h2>
 	
-	<h3>The selected cipher was: <p th:text=${algorithm} /></h3>
-	<h3>The selected word was: <p th:text=${word} /></h3>
-	<h3>The selected key was: <p th:text=${key} /></h3>
+	<table style="border: 1px solid black; border-radius: 10px; background-color: #f55d42;">
+  <tr>
+  <th>Selected cipher</th>
+  <th>Selected word</th>
+  <th>Selected key</th>
+  </tr>
+  <tr>
+  <td><p th:text=${algorithm} /> </td>
+  <td><p th:text=${word} /> </td>
+  <td><p th:text=${key} /> </td>
+  </tr>
+  </table>
 	<h3> <p th:text=${encrypted} /></h3>
 	
 	<input type="submit" value="Go back" 
-    onclick="window.location='/cipher';" />   
+    onclick="window.location='/cipher';" /> 
+    </div>  
 
 </body>
 </html>

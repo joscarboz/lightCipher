@@ -43,6 +43,7 @@ public class SpeckEngine
       final byte[] io64 = {
         0x3b, 0x72, 0x65, 0x74, 0x74, 0x75, 0x43, 0x2d
       };
+      printBytes(io64);
       encrypt(SPECK_64, key64, io64);
       printBytes(io64);
       decrypt(SPECK_64, key64, io64);

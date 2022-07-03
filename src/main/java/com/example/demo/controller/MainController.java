@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.demo.utils.LlamadasUtilesEncrypt;
 import com.example.demo.utils.LlamadasUtilesDecrypt;
 import com.example.demo.utils.SimonEngine;
+import com.example.demo.utils.SpeckEngine;
 
 // Annotation
 @Controller
@@ -66,7 +67,7 @@ public class MainController {
 			}
 			break;
 		case "Speck32":
-			if (inputText.length() == 6 && keytext.length() == 8) {
+			if (inputText.length() == 4 && keytext.length() == 8) {
 				LlamadasUtilesEncrypt.Speck32(inputText, keytext, modelo);
 			} else {
 				String message = "Word must be 6 characters & key must be 8 characters";
@@ -85,9 +86,29 @@ public class MainController {
 			}
 			break;
 
+		case "Speck48":
+			if (inputText.length() == 6 && (keytext.length() == 9 || keytext.length() == 12)) {
+				LlamadasUtilesEncrypt.Speck48(inputText, keytext, modelo);
+			} else {
+				String message = "Word must be 6 characters & key must be 9 or 12 characters";
+				modelo.addAttribute("outputEncryptError", message);
+				res = "cipher";
+			}
+			break;
+
 		case "Simon64":
 			if (inputText.length() == 8 && (keytext.length() == 12 || keytext.length() == 16)) {
 				LlamadasUtilesEncrypt.Simon64(inputText, keytext, modelo);
+			} else {
+				String message = "Word must be 8 characters & key must be 12 or 16 characters";
+				modelo.addAttribute("outputEncryptError", message);
+				res = "cipher";
+			}
+			break;
+
+		case "Speck64":
+			if (inputText.length() == 8 && (keytext.length() == 12 || keytext.length() == 16)) {
+				LlamadasUtilesEncrypt.Speck64(inputText, keytext, modelo);
 			} else {
 				String message = "Word must be 8 characters & key must be 12 or 16 characters";
 				modelo.addAttribute("outputEncryptError", message);
@@ -106,11 +127,34 @@ public class MainController {
 			}
 			break;
 
+		case "Speck96":
+			// 12 O 18
+			if (inputText.length() == 12 && (keytext.length() == 12 || keytext.length() == 18)) {
+				LlamadasUtilesEncrypt.Speck96(inputText, keytext, modelo);
+			} else {
+				String message = "Word must be 12 characters & key must be 12 or 18 characters";
+				modelo.addAttribute("outputEncryptError", message);
+				res = "cipher";
+			}
+			break;
+
 		case "Simon128":
 			// 12 24 32
 			if (inputText.length() == 16
 					&& (keytext.length() == 16 || keytext.length() == 24 || keytext.length() == 32)) {
 				LlamadasUtilesEncrypt.Simon128(inputText, keytext, modelo);
+			} else {
+				String message = "Word must be 16 characters & key must be 16, 24 or 32 characters";
+				modelo.addAttribute("outputEncryptError", message);
+				res = "cipher";
+			}
+			break;
+
+		case "Speck128":
+			// 12 24 32
+			if (inputText.length() == 16
+					&& (keytext.length() == 16 || keytext.length() == 24 || keytext.length() == 32)) {
+				LlamadasUtilesEncrypt.Speck128(inputText, keytext, modelo);
 			} else {
 				String message = "Word must be 16 characters & key must be 16, 24 or 32 characters";
 				modelo.addAttribute("outputEncryptError", message);
@@ -157,10 +201,28 @@ public class MainController {
 				res = "cipher";
 			}
 			break;
+		case "Speck48":
+			if (keytext.length() == 9 || keytext.length() == 12) {
+				LlamadasUtilesDecrypt.Speck48(inputText, keytext, modelo);
+			} else {
+				String message = "Key must be 9 or 12 characters";
+				modelo.addAttribute("outputDecryptError", message);
+				res = "cipher";
+			}
+			break;
 
 		case "Simon64":
 			if (keytext.length() == 12 || keytext.length() == 16) {
 				LlamadasUtilesDecrypt.Simon64(inputText, keytext, modelo);
+			} else {
+				String message = "Key must be 12 or 16 characters";
+				modelo.addAttribute("outputDecryptError", message);
+				res = "cipher";
+			}
+			break;
+		case "Speck64":
+			if (keytext.length() == 12 || keytext.length() == 16) {
+				LlamadasUtilesDecrypt.Speck64(inputText, keytext, modelo);
 			} else {
 				String message = "Key must be 12 or 16 characters";
 				modelo.addAttribute("outputDecryptError", message);
@@ -178,11 +240,32 @@ public class MainController {
 				res = "cipher";
 			}
 			break;
+		case "Speck96":
+			// 12 O 18
+			if (keytext.length() == 12 || keytext.length() == 18) {
+				LlamadasUtilesDecrypt.Speck96(inputText, keytext, modelo);
+			} else {
+				String message = "Key must be 12 or 18 characters";
+				modelo.addAttribute("outputDecryptError", message);
+				res = "cipher";
+			}
+			break;
 
 		case "Simon128":
 			// 12 24 32
 			if (keytext.length() == 16 || keytext.length() == 24 || keytext.length() == 32) {
 				LlamadasUtilesDecrypt.Simon128(inputText, keytext, modelo);
+			} else {
+				String message = "Key must be 16, 24 or 32 characters";
+				modelo.addAttribute("outputDecryptError", message);
+				res = "cipher";
+			}
+			break;
+
+		case "Speck128":
+			// 12 24 32
+			if (keytext.length() == 16 || keytext.length() == 24 || keytext.length() == 32) {
+				LlamadasUtilesDecrypt.Speck128(inputText, keytext, modelo);
 			} else {
 				String message = "Key must be 16, 24 or 32 characters";
 				modelo.addAttribute("outputDecryptError", message);

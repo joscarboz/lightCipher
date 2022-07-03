@@ -1,47 +1,76 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <meta charset="UTF-8">
 <head>
-<h1>lightCipher</h1>
+<div align="center">
+	<h1>lightCipher</h1>
+</div>
 </head>
-<body>
-	<form action="encrypt">
-		<label for="inputText">Input:</label> <input type="text"
-			id="inputText" name="inputText"><br> <br> <label
-			for="keytext">Key:</label> <input type="text" id="keytext"
-			name="keytext"><br> <br> <select
-			name="selectEncrypt" id="selectEncrypt">
-			<option value="Simon32">Simon32</option>
-			<option value="Simon48">Simon48</option>
-			<option value="Simon64">Simon64</option>
-			<option value="Simon96">Simon96</option>
-			<option value="Simon128">Simon128</option>
-			<option value="Speck32">Speck32</option>
-			<option value="Speck48">Speck48</option>
-			<option value="Speck64">Speck64</option>
-			<option value="Speck96">Speck96</option>
-			<option value="Speck128">Speck128</option>
-		</select> <input type="submit" value="Encrypt">
-	</form>
+<body style="background-image: url('images/Pastel_Background_vector_5.jpg'); background-repeat: no-repeat;    background-size: 100% 100%;">
+	<div align="center">
+		<h1>ENCRYPTION PROCESS</h1>
+		<form action="encrypt">
+			<table style="border: 1px solid black; border-radius: 10px; background-color: #42f5c2;">
+				<tr>
+					<th><label for="inputText">Input:</label></th>
+					<th><label for="keytext">Key:</label></th>
+					<th><label for="keytext">Cipher:</label></th>
+				</tr>
+				<tr>
+					<td><input type="text" id="inputText" name="inputText"></td>
+					<td><input type="text" id="keytext" name="keytext"></td>
+					<td><select name="selectEncrypt" id="selectEncrypt">
+							<option value="Simon32">Simon32</option>
+							<option value="Simon48">Simon48</option>
+							<option value="Simon64">Simon64</option>
+							<option value="Simon96">Simon96</option>
+							<option value="Simon128">Simon128</option>
+							<option value="Speck32">Speck32</option>
+							<option value="Speck48">Speck48</option>
+							<option value="Speck64">Speck64</option>
+							<option value="Speck96">Speck96</option>
+							<option value="Speck128">Speck128</option>
+					</select></td>
+					<td><input type="submit" value="Encrypt"></td>
+				</tr>
+			</table>
+		</form>
 
-	<p th:text=${outputEncryptError} />
-	<form action="decrypt">
-		<label for="inputText">Input:</label> <input type="text"
-			id="inputText" name="inputText"><br> <br> <label
-			for="keytext">Key:</label> <input type="text" id="keytext"
-			name="keytext"><br> <br> <select
-			name="selectDecrypt" id="selectDecrypt">
-			<option value="Simon32">Simon32</option>
-			<option value="Simon48">Simon48</option>
-			<option value="Simon64">Simon64</option>
-			<option value="Simon96">Simon96</option>
-			<option value="Simon128">Simon128</option>
-			<option value="Speck32">Speck32</option>
-			<option value="Speck48">Speck48</option>
-			<option value="Speck64">Speck64</option>
-			<option value="Speck96">Speck96</option>
-			<option value="Speck128">Speck128</option>
-		</select> <input type="submit" value="Decrypt">
-	</form>
-	<p th:text=${outputDecryptError} />
+		<p th:text=${outputEncryptError} />
+	</div>
+	</br>
+	</br>
+
+	<div align="center">
+		<h1>DECRYPTION PROCESS</h1>
+		<form action="decrypt">
+			<table style="border: 1px solid black; border-radius: 10px; background-color: #9ef542;">
+				<tr>
+					<th><label for="inputText">Input:</label></th>
+					<th><label for="keytext">Key:</label></th>
+					<th><label for="keytext">Cipher:</label></th>
+				</tr>
+				<tr>
+					<td><input type="text" id="inputText" name="inputText"></td>
+					<td><input type="text" id="keytext" name="keytext"></td>
+					<td><select name="selectDecrypt" id="selectDecrypt">
+							<option value="Simon32">Simon32</option>
+							<option value="Simon48">Simon48</option>
+							<option value="Simon64">Simon64</option>
+							<option value="Simon96">Simon96</option>
+							<option value="Simon128">Simon128</option>
+							<option value="Speck32">Speck32</option>
+							<option value="Speck48">Speck48</option>
+							<option value="Speck64">Speck64</option>
+							<option value="Speck96">Speck96</option>
+							<option value="Speck128">Speck128</option>
+					</select></td>
+					<td><input type="submit" value="Decrypt"></td>
+				</tr>
+			</table>
+
+		</form>
+
+		<p th:text=${outputDecryptError} />
+	</div>
 </body>
 </html>
